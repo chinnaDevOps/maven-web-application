@@ -13,15 +13,15 @@ stage('CheckOutCode'){
 }
 
 stage('Build'){
-sh "${mavenHome}/bin/mvn clean package"
+bat "${mavenHome}/bin/mvn clean package"
 }
 
 stage('ExecuteSonarQubeReport'){
-sh "${mavenHome}/bin/mvn clean sonar:sonar"
+bat "${mavenHome}/bin/mvn clean sonar:sonar"
 }
 
 stage('UploadArtifcatsIntoArtifactoryRepo'){
-sh "${mavenHome}/bin/mvn clean deploy"
+bat "${mavenHome}/bin/mvn clean deploy"
 }
 
 stage('DeployAppIntoTomcatServer'){
